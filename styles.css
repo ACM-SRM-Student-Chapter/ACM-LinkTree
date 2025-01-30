@@ -1,0 +1,234 @@
+    body {
+      font-family: 'Brush Script MT (cursive)', 'Georgia (serif)';
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+      overflow: hidden;
+      position: relative;
+      cursor: none; /* Hide default cursor */
+    }
+
+
+    .logo {
+      width: 270px; /* Adjust size as needed */
+      height: 150px; /* Adjust size as needed */
+      /* border-radius: 20%; Circular logo */
+      /* border: 4px solid rgba(255, 255, 255, 0.3); Border for the logo */
+      /* box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); Glow effect */
+      margin-bottom: 10px;
+      animation: float 4s ease-in-out infinite; /* Floating animation */
+      opacity: 100%;
+
+    }
+
+    /* Custom Cursor */
+    .cursor {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      position: absolute;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease, background 0.2s ease;
+      z-index: 1000;
+    }
+
+    .cursor.hover {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Particle Background */
+    #particles-js {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    /* Container with Glass Morphism, 3D Tilt, and Parallax */
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 20px;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      max-width: 450px;
+      width: 100%;
+      animation: fadeIn 1.5s ease-in-out;
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      position: relative;
+      z-index: 10;
+    }
+
+    .container:hover {
+      transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Profile Image with Floating Animation */
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* Heading and Description */
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      font-weight: 600;
+      animation: slideIn 1s ease-in-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 25px;
+      color: #e0e0e0;
+      animation: slideIn 1.2s ease-in-out;
+    }
+
+    /* Links with Gradient Hover Effects */
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .link {
+      display: block;
+      padding: 15px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+      color: #fff;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      font-size: 16px;
+      font-weight: 500;
+      animation: fadeInLinks 1.5s ease-in-out;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .link::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300%;
+      height: 300%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform 0.5s ease;
+      z-index: 0;
+    }
+
+    .link:hover::before {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .link span {
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes fadeInLinks {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .link:hover {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2));
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Footer with Subtle Animation */
+    .footer {
+      margin-top: 25px;
+      font-size: 14px;
+      color: #ccc;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .footer a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    /* Dynamic Gradient Background Animation */
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    body {
+      background: linear-gradient(135deg, #1e3c72, #2a5298, #4a00e0);
+      background-size: 200% 200%;
+      animation: gradientAnimation 10s ease infinite;
+    }

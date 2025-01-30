@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="ACM FINAL.png">
+  <title>ACM SRM Student Chapter LinkTree</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <script src="script.js"></script>
+  <!-- Custom Cursor -->
+  <div class="cursor"></div>
+
+  <!-- Particle Background -->
+  <div id="particles-js"></div>
+
+  <!-- Main Container -->
+  <div class="container">
+    <img src="ACM LOGO (svg).png" alt="SRMIST ACM Logo" class="logo">
+    <h1>SRM ACM STUDENT CHAPTER</h1>
+    <p style="font-family: Tahoma, sans-serif">Welcome to our personalized Linktree! Connect with us and explore exciting opportunities for collaboration and growth.</p>
+    <div class="links">
+      <a href="https://acmsrm.in/" class="link"><span>Official Website</span></a>
+      <a href="https://github.com/ACM-SRM-Student-Chapter" class="link"><span>GitHub</span></a>
+      <a href="https://www.linkedin.com/company/srmist-acm-student-chapter/" class="link"><span>LinkedIn</span></a>
+      <a href="https://www.instagram.com/srm.acm" class="link"><span>Instagram</span></a>
+      <a href="https://www.youtube.com/@SRMKTRACMStudentChapter" class="link"><span>YouTube</span></a>
+    </div>
+    <div class="footer">
+      © 2025 SRM ACM STUDENT CHAPTER. All rights reserved.<br>
+    </div>
+  </div>
+
+  <!-- Particle.js Library -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    // Particle.js Configuration
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1 } },
+        size: { value: 3, random: true, anim: { enable: true, speed: 2, size_min: 0.1 } },
+        line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 3, direction: "none", random: true, straight: false, out_mode: "out" }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: { onhover: { enable: true, mode: "bubble" }, onclick: { enable: true, mode: "push" } },
+        modes: { bubble: { distance: 200, size: 6, duration: 2, opacity: 0.8, speed: 3 }, push: { particles_nb: 4 } }
+      },
+      retina_detect: true
+    });
+
+    // Custom Cursor Logic
+    const cursor = document.querySelector('.cursor');
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = `${e.pageX}px`;
+      cursor.style.top = `${e.pageY}px`;
+    });
+
+    document.querySelectorAll('.link').forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        cursor.classList.add('hover');
+      });
+      link.addEventListener('mouseleave', () => {
+        cursor.classList.remove('hover');
+      });
+    });
+  </script>
+</body>
+</html>
