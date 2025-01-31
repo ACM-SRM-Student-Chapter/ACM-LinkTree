@@ -14,7 +14,7 @@ body {
   cursor: none; /* Hide default cursor */
 }
 
-/* Custom Cursor */
+/* Conditional Custom Cursor */
 .cursor {
   width: 20px;
   height: 20px;
@@ -43,7 +43,7 @@ body {
   z-index: -1;
 }
 
-/* Container with Glass Morphism, 3D Tilt, and Parallax */
+/* Container with Glass Morphism */
 .container {
   text-align: center;
   background: rgba(255, 255, 255, 0.1);
@@ -58,22 +58,6 @@ body {
   transition: transform 0.5s ease, box-shadow 0.5s ease;
   position: relative;
   z-index: 10;
-}
-
-.container:hover {
-  transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* Logo Styling */
@@ -142,39 +126,6 @@ p {
   overflow: hidden;
 }
 
-.link::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 300%;
-  height: 300%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
-  transform: translate(-50%, -50%) scale(0);
-  transition: transform 0.5s ease;
-  z-index: 0;
-}
-
-.link:hover::before {
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.link span {
-  position: relative;
-  z-index: 1;
-}
-
-@keyframes fadeInLinks {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .link:hover {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2));
   transform: translateY(-5px);
@@ -187,36 +138,6 @@ p {
   font-size: 14px;
   color: #ccc;
   animation: fadeIn 2s ease-in-out;
-}
-
-.footer a {
-  color: #ccc;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer a:hover {
-  color: #fff;
-  text-decoration: underline;
-}
-
-/* Dynamic Gradient Background Animation */
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-body {
-  background: linear-gradient(135deg, #1e3c72, #2a5298, #4a00e0);
-  background-size: 200% 200%;
-  animation: gradientAnimation 10s ease infinite;
 }
 
 /* Media Queries for Responsive Design */
