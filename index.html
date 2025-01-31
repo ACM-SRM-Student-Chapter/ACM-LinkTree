@@ -9,17 +9,17 @@
 </head>
 <body>
   <script src="script.js"></script>
-  <!-- Custom Cursor -->
-  <div class="cursor"></div>
+  <!-- Conditional Custom Cursor -->
+  <div class="cursor" id="custom-cursor"></div>
 
   <!-- Particle Background -->
   <div id="particles-js"></div>
 
   <!-- Main Container -->
-  <div class="container">
+  <div class="container" id="main-container">
     <img src="ACM LOGO (svg).png" alt="SRMIST ACM Logo" class="logo">
     <h1>SRM ACM STUDENT CHAPTER</h1>
-    <p style="font-family: MS Sans Serif">Welcome to our personalized Linktree! Connect with us and explore exciting opportunities for collaboration and growth.</p>
+    <p style="font-family: Tahoma, sans-serif">Welcome to our personalized Linktree! Connect with us and explore exciting opportunities for collaboration and growth.</p>
     <div class="links">
       <a href="https://acmsrm.in/" class="link"><span>Official Website</span></a>
       <a href="https://github.com/ACM-SRM-Student-Chapter" class="link"><span>GitHub</span></a>
@@ -54,21 +54,43 @@
       retina_detect: true
     });
 
-    // Custom Cursor Logic
-    const cursor = document.querySelector('.cursor');
-    document.addEventListener('mousemove', (e) => {
-      cursor.style.left = `${e.pageX}px`;
-      cursor.style.top = `${e.pageY}px`;
-    });
+    // Detect Device Type
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
-    document.querySelectorAll('.link').forEach(link => {
-      link.addEventListener('mouseenter', () => {
-        cursor.classList.add('hover');
+    // Enable Tilt Effect and Custom Cursor for Non-Mobile Devices
+    if (!isMobile) {
+      // Custom Cursor Logic
+      const cursor = document.getElementById('custom-cursor');
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = `${e.pageX}px`;
+        cursor.style.top = `${e.pageY}px`;
       });
-      link.addEventListener('mouseleave', () => {
-        cursor.classList.remove('hover');
+
+      document.querySelectorAll('.link').forEach(link => {
+        link.addEventListener('mouseenter', () => {
+          cursor.classList.add('hover');
+        });
+        link.addEventListener('mouseleave', () => {
+          cursor.classList.remove('hover');
+        });
       });
-    });
+
+      // Tilt Effect Logic
+      const container = document.getElementById('main-container');
+      container.addEventListener('mousemove', (e) => {
+        const xAxis = (window.innerWidth / 2 - e.pageX) / 10;
+        const yAxis = (window.innerHeight / 2 - e.pageY) / 10;
+        container.style.transform = `perspective(1000px) rotateX(${yAxis}deg) rotateY(${xAxis}deg)`;
+      });
+
+      container.addEventListener('mouseleave', () => {
+        container.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+      });
+    } else {
+      // Disable Custom Cursor and Tilt Effect for Mobile Devices
+      const cursor = document.getElementById('custom-cursor');
+      cursor.style.display = 'none'; // Hide cursor on mobile
+    }
   </script>
 </body>
 </html>
