@@ -1,3 +1,7 @@
+* {
+  user-select: none;
+}
+
 body {
   font-family: "Kanit", serif;
   background: linear-gradient(135deg, #1e3c72, #2a5298);
@@ -65,10 +69,9 @@ body {
 /* Logo Styling */
 .logo {
   width: 270px; /* Adjust size as needed */
-  
-  /* animation: float 4s ease-in-out infinite; Floating animation */
-  transition: transform 0.1s ease-out;
-  will-change: transform;
+  animation: float 4s ease-in-out infinite; /*Floating animation*/
+  /* transition: transform 0.1s ease-out;
+  will-change: transform; */
   opacity: 100%;
 }
 
@@ -87,6 +90,7 @@ h1 {
   margin-bottom: 10px;
   font-weight: 600;
   animation: slideIn 1s ease-in-out;
+  /* animation: float 4s ease-in-out infinite; */
 }
 
 @keyframes slideIn {
@@ -114,6 +118,16 @@ p {
   gap: 15px;
 }
 
+@keyframes fadeInLinks {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .link {
   display: block;
   padding: 15px;
@@ -135,6 +149,16 @@ p {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
+.link span {
+  display: inline-flex;
+  align-items: center; 
+  transition: transform 0.3s ease; 
+}
+
+.link:hover span {
+  transform: scale(1.1); 
+}
+
 /* Footer with Subtle Animation */
 .footer {
   margin-top: 25px;
@@ -146,7 +170,7 @@ p {
 /* Media Queries for Responsive Design */
 @media (max-width: 768px) {
   .container {
-    padding: 20px;
+    padding: 50px 30px;
   }
 
   .logo {
@@ -242,13 +266,31 @@ p {
 .social{
   display: flex;
   flex-wrap: wrap;
-  margin: 2px;
+  margin-top: 20px;
+  /* width: 100%; */
   justify-content: space-around;
   align-items:center;
 }
 
 .social .link {
-  margin-top: 7px;
-  width: 40%;
+  margin-bottom: 10px;
+  width: 42%;
+}
+
+@keyframes glow {
+  0% {
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+      text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 1);
+  }
+  100% {
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+}
+
+.attention {
+  animation: fadeInLinks 1.5s ease-in-out, glow 1.5s ease-in-out infinite; 
+  animation-delay: 0s, 1.5s;
 }
 
