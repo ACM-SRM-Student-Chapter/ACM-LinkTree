@@ -26,6 +26,7 @@ function linksComponentGeneration (){
 
 window.onload = linksComponentGeneration;
 
+
 // Code from index.html initially. just organised it
 
 // Particle.js Configuration
@@ -47,10 +48,10 @@ particlesJS("particles-js", {
     retina_detect: true
   });
 
-  // Detect Device Type
+ // Detect Device Type
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
-  // Enable Tilt Effect and Custom Cursor for Non-Mobile Devices
+//   // Enable Tilt Effect and Custom Cursor for Non-Mobile Devices
   if (!isMobile) {
     // Custom Cursor Logic
     const cursor = document.getElementById('custom-cursor');
@@ -58,27 +59,26 @@ particlesJS("particles-js", {
       cursor.style.left = `${e.pageX}px`;
       cursor.style.top = `${e.pageY}px`;
     });
+//     document.querySelectorAll('.link').forEach(link => {
+//       link.addEventListener('mouseenter', () => {
+//         cursor.classList.add('hover');
+//       });
+//       link.addEventListener('mouseleave', () => {
+//         cursor.classList.remove('hover');
+//       });
+//     });
 
-    document.querySelectorAll('.link').forEach(link => {
-      link.addEventListener('mouseenter', () => {
-        cursor.classList.add('hover');
-      });
-      link.addEventListener('mouseleave', () => {
-        cursor.classList.remove('hover');
-      });
-    });
+//     // Tilt Effect Logic
+//     const container = document.getElementById('logo');
+//     container.addEventListener('mousemove', (e) => {
+//       const xAxis = (window.innerWidth / 2 - e.pageX) / 10;
+//       const yAxis = (window.innerHeight / 2 - e.pageY) / 10;
+//       container.style.transform = `perspective(1000px) rotateX(${yAxis}deg) rotateY(${xAxis}deg)`;
+//     });
 
-    // Tilt Effect Logic
-    const container = document.getElementById('logo');
-    container.addEventListener('mousemove', (e) => {
-      const xAxis = (window.innerWidth / 2 - e.pageX) / 10;
-      const yAxis = (window.innerHeight / 2 - e.pageY) / 10;
-      container.style.transform = `perspective(1000px) rotateX(${yAxis}deg) rotateY(${xAxis}deg)`;
-    });
-
-    container.addEventListener('mouseleave', () => {
-      container.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-    });
+//     container.addEventListener('mouseleave', () => {
+//       container.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+//     });
   } else {
     // Disable Custom Cursor and Tilt Effect for Mobile Devices
     const cursor = document.getElementById('custom-cursor');
