@@ -68,7 +68,8 @@ body {
 
 /* Logo Styling */
 .logo {
-  width: 270px; /* Adjust size as needed */
+  /* width: 150px;  */
+  height: 80px;
   animation: float 4s ease-in-out infinite; /*Floating animation*/
   /* transition: transform 0.1s ease-out;
   will-change: transform; */
@@ -173,11 +174,6 @@ p {
     padding: 50px 30px;
   }
 
-  .logo {
-    width: 200px;
-    height: 100px;
-  }
-
   h1 {
     font-size: 24px;
   }
@@ -198,15 +194,6 @@ p {
 }
 
 @media (max-width: 480px) {
-  .container {
-    padding: 15px;
-  }
-
-  .logo {
-    width: 150px;
-    height: 80px;
-  }
-
   h1 {
     font-size: 20px;
   }
@@ -258,11 +245,6 @@ p {
   background-color: #888; /* Darker gray when hovering */
 }
 
-/* Optional: Style the corner when both scrollbars appear */
-::-webkit-scrollbar-corner {
-  background: #444;
-}
-
 .social{
   display: flex;
   flex-wrap: wrap;
@@ -274,7 +256,7 @@ p {
 
 .social .link {
   margin-bottom: 10px;
-  width: 42%;
+  width: 41%;
 }
 
 @keyframes glow {
