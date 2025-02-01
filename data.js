@@ -32,10 +32,22 @@ const linksData = [
     {
         "link": "https://docs.google.com/forms/d/e/1FAIpQLSelAbNkqo-3W6z9dGfMhyHpCOGghEAmJGRcKB-avh1zCGdo3w/viewform?usp=header",
         "icon": "",
-        "text": "RECRUITMENTS OPEN",
-        "category": "non-social"
+        "text": "🚀 RECRUITMENTS OPEN 🚀",
+        "category": "important"
     }
 ];
 // Order the links in reverse order of importance. The more important links are at the bottom. (Column reverse flex box is used)
 
+//format for adding new data 
+
+// {
+//     "link": "<Link to the website or form>",
+//     "icon": "<Icon in SVG format, including the svg tags. Can be left blank if no icon is needed>",
+//     "text": "<Text to be displayed for the link>",
+//     "category": "non-social/ social"
+// }
+
+// social : social mdeia links
+// non-social : other links
+// important : important links that need attention. gives a glow effect.
 export default linksData;
