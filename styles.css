@@ -1,5 +1,5 @@
 body {
-  font-family: 'Brush Script MT (cursive)', 'Georgia (serif)';
+  font-family: "Kanit", serif;
   background: linear-gradient(135deg, #1e3c72, #2a5298);
   color: #fff;
   display: flex;
@@ -9,9 +9,11 @@ body {
   margin: 0;
   padding: 20px;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow-y: auto; 
+  overflow-x: hidden; 
   position: relative;
   cursor: none; /* Hide default cursor */
+
 }
 
 /* Conditional Custom Cursor */
@@ -63,9 +65,10 @@ body {
 /* Logo Styling */
 .logo {
   width: 270px; /* Adjust size as needed */
-  height: 150px; /* Adjust size as needed */
-  margin-bottom: 10px;
-  animation: float 4s ease-in-out infinite; /* Floating animation */
+  
+  /* animation: float 4s ease-in-out infinite; Floating animation */
+  transition: transform 0.1s ease-out;
+  will-change: transform;
   opacity: 100%;
 }
 
@@ -107,7 +110,7 @@ p {
 /* Links with Gradient Hover Effects */
 .links {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   gap: 15px;
 }
 
@@ -160,6 +163,7 @@ p {
   }
 
   .link {
+    min-width: 12vw;
     padding: 12px;
     font-size: 14px;
   }
@@ -196,3 +200,55 @@ p {
     font-size: 10px;
   }
 }
+
+/* Style for Link Icons */
+.link svg {
+  width: 24px; /* Adjust size as needed */
+  height: 24px;
+  margin-right: 8px; /* Space between icon and text */
+  vertical-align: middle;
+  object-fit: contain;
+}
+
+/* Style the scrollbar itself */
+::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+  height: 10px; /* Height of the horizontal scrollbar */
+}
+
+/* Style the track (background of the scrollbar) */
+::-webkit-scrollbar-track {
+  background: #333; /* Dark background for the track */
+  border-radius: 10px; /* Rounded corners for the track */
+}
+
+/* Style the thumb (draggable part) */
+::-webkit-scrollbar-thumb {
+  background-color: #aaa; /* Light gray color for the thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+  border: 2px solid #333; /* Optional border around the thumb */
+}
+
+/* Style the thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #888; /* Darker gray when hovering */
+}
+
+/* Optional: Style the corner when both scrollbars appear */
+::-webkit-scrollbar-corner {
+  background: #444;
+}
+
+.social{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2px;
+  justify-content: space-around;
+  align-items:center;
+}
+
+.social .link {
+  margin-top: 7px;
+  width: 40%;
+}
+

@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="ACM FINAL.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <title>ACM SRM Student Chapter LinkTree</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -17,22 +20,23 @@
 
   <!-- Main Container -->
   <div class="container" id="main-container">
-    <img src="ACM LOGO (svg).png" alt="SRMIST ACM Logo" class="logo">
+    <div id=" logo">
+      <img src="ACM LOGO (svg).png" alt="SRMIST ACM Logo" class="logo" id="logo">
+    </div>
     <h1>SRM ACM STUDENT CHAPTER</h1>
     <p style="font-family: Tahoma, sans-serif">Welcome to our personalized Linktree! Connect with us and explore exciting opportunities for collaboration and growth.</p>
-    <div class="links">
-      <a href="https://acmsrm.in/" class="link"><span>Official Website</span></a>
-      <a href="https://github.com/ACM-SRM-Student-Chapter" class="link"><span>GitHub</span></a>
-      <a href="https://www.linkedin.com/company/srmist-acm-student-chapter/" class="link"><span>LinkedIn</span></a>
-      <a href="https://www.instagram.com/srm.acm" class="link"><span>Instagram</span></a>
-      <a href="https://www.youtube.com/@SRMKTRACMStudentChapter" class="link"><span>YouTube</span></a>
-    </div>
+    <div class="links" id ="links">
+      <div class="social" id ="social"></div>
+    </div> <!--generates elements dyanimcally -->
     <div class="footer">
       © 2025 SRM ACM STUDENT CHAPTER. All rights reserved.<br>
     </div>
   </div>
 
   <!-- Particle.js Library -->
+  <script type="module" src="script.js"></script>
+
+
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
     // Particle.js Configuration
@@ -76,7 +80,7 @@
       });
 
       // Tilt Effect Logic
-      const container = document.getElementById('main-container');
+      const container = document.getElementById('logo');
       container.addEventListener('mousemove', (e) => {
         const xAxis = (window.innerWidth / 2 - e.pageX) / 10;
         const yAxis = (window.innerHeight / 2 - e.pageY) / 10;
