@@ -29,12 +29,12 @@ const linksData = [
         "text": "YouTube",
         "category": "social"
     },
-    {
-        "link": "https://docs.google.com/forms/d/e/1FAIpQLSelAbNkqo-3W6z9dGfMhyHpCOGghEAmJGRcKB-avh1zCGdo3w/viewform?usp=header",
-        "icon": "",
-        "text": "🚀 RECRUITMENTS OPEN 🚀",
-        "category": "important"
-    }
+    // {
+    //     "link": "https://docs.google.com/forms/d/e/1FAIpQLSelAbNkqo-3W6z9dGfMhyHpCOGghEAmJGRcKB-avh1zCGdo3w/viewform?usp=header",
+    //     "icon": "",
+    //     "text": "🚀 RECRUITMENTS OPEN 🚀",
+    //     "category": "important"
+    // }
 ];
 // Order the links in reverse order of importance. The more important links are at the bottom. (Column reverse flex box is used)
 
