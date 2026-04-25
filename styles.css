@@ -1,278 +1,269 @@
+:root {
+  --bg-color: #111315;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --acm-electric: #00e5ff;
+  --acm-pink: #ff4081;
+  --acm-violet: #7b61ff;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
 * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  font-family: "Kanit", serif;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
-  color: #fff;
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  margin: 0;
-  padding: 20px;
-  box-sizing: border-box;
-  overflow-y: auto; 
-  overflow-x: hidden; 
+  overflow-x: hidden;
   position: relative;
-  cursor: none; /* Hide default cursor */
-
 }
 
-/* Conditional Custom Cursor */
-.cursor {
-  width: 20px;
-  height: 20px;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  position: absolute;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease, background 0.2s ease;
-  z-index: 1000;
-}
-
-.cursor.hover {
-  width: 40px;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* Particle Background */
-#particles-js {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+/* --- Cinematic Background --- */
+.grid-overlay {
+  position: fixed;
+  inset: 0;
   z-index: -1;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
 }
 
-/* Container with Glass Morphism */
-.container {
-  text-align: center;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 30px;
-  border-radius: 20px;
-  backdrop-filter: blur(15px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  max-width: 450px;
-  width: 100%;
-  animation: fadeIn 1.5s ease-in-out;
-  transform-style: preserve-3d;
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-  position: relative;
-  z-index: 10;
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: -2;
+  opacity: 0.5;
+  animation: float 10s ease-in-out infinite alternate;
 }
-
-/* Logo Styling */
-.logo {
-  /* width: 150px;  */
-  height: 80px;
-  animation: float 4s ease-in-out infinite; /*Floating animation*/
-  /* transition: transform 0.1s ease-out;
-  will-change: transform; */
-  opacity: 100%;
+.orb-electric {
+  top: -10%;
+  left: -10%;
+  width: 40vw;
+  height: 40vw;
+  background: var(--acm-electric);
+  opacity: 0.15;
+}
+.orb-pink {
+  bottom: -10%;
+  right: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: var(--acm-pink);
+  animation-delay: -5s;
+  opacity: 0.1;
+}
+.orb-violet {
+  top: 40%;
+  left: 40%;
+  width: 30vw;
+  height: 30vw;
+  background: var(--acm-violet);
+  animation-duration: 15s;
+  opacity: 0.1;
 }
 
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0);
+  0% {
+    transform: translate(0, 0);
   }
-  50% {
-    transform: translateY(-10px);
+  100% {
+    transform: translate(30px, 30px);
   }
 }
 
-/* Heading and Description */
-h1 {
-  font-size: 28px;
-  margin-bottom: 10px;
-  font-weight: 600;
-  animation: slideIn 1s ease-in-out;
-  /* animation: float 4s ease-in-out infinite; */
+/* --- Main Container --- */
+.container {
+  width: 100%;
+  max-width: 480px;
+  padding: 40px 24px;
+  margin: 40px 20px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  border-radius: 32px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  animation: slideUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-@keyframes slideIn {
+@keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateX(-20px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-p {
-  font-size: 16px;
-  margin-bottom: 25px;
-  color: #e0e0e0;
-  animation: slideIn 1.2s ease-in-out;
-}
-
-/* Links with Gradient Hover Effects */
-.links {
-  display: flex;
-  flex-direction: column-reverse;
-  gap: 15px;
-}
-
-@keyframes fadeInLinks {
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 1;
     transform: translateY(0);
   }
 }
-.link {
-  display: block;
-  padding: 15px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
-  color: #fff;
+
+/* --- Profile Section --- */
+.profile-section {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.logo-wrapper {
+  width: 100px;
+  height: 60px;
+  margin: 0 auto 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 2px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+h1 {
+  font-family: "Anton", sans-serif;
+  font-size: 32px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  background: linear-gradient(to right, #fff, #aaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tagline {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+/* --- Main Links --- */
+.links-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.link-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 18px 24px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  color: var(--text-primary);
   text-decoration: none;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  font-size: 16px;
-  font-weight: 500;
-  animation: fadeInLinks 1.5s ease-in-out;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   position: relative;
   overflow: hidden;
 }
 
-.link:hover {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2));
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+.link-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.link span {
-  display: inline-flex;
-  align-items: center; 
-  transition: transform 0.3s ease; 
+.link-card svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  fill: currentColor;
 }
 
-.link:hover span {
-  transform: scale(1.1); 
+/* Important Link Glow */
+.link-card.important {
+  background: rgba(0, 229, 255, 0.1);
+  border-color: rgba(0, 229, 255, 0.3);
+  color: var(--acm-electric);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.1);
+}
+.link-card.important:hover {
+  background: rgba(0, 229, 255, 0.15);
+  border-color: var(--acm-electric);
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
 }
 
-/* Footer with Subtle Animation */
-.footer {
-  margin-top: 25px;
-  font-size: 14px;
-  color: #ccc;
-  animation: fadeIn 2s ease-in-out;
-}
-
-/* Media Queries for Responsive Design */
-@media (max-width: 768px) {
-  .container {
-    padding: 50px 30px;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  p {
-    font-size: 14px;
-  }
-
-  .link {
-    min-width: 12vw;
-    padding: 12px;
-    font-size: 14px;
-  }
-
-  .footer {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  h1 {
-    font-size: 20px;
-  }
-
-  p {
-    font-size: 12px;
-  }
-
-  .link {
-    padding: 10px;
-    font-size: 12px;
-  }
-
-  .footer {
-    font-size: 10px;
-  }
-}
-
-/* Style for Link Icons */
-.link svg {
-  width: 24px; /* Adjust size as needed */
-  height: 24px;
-  margin-right: 8px; /* Space between icon and text */
-  vertical-align: middle;
-  object-fit: contain;
-}
-
-/* Style the scrollbar itself */
-::-webkit-scrollbar {
-  width: 10px; /* Width of the scrollbar */
-  height: 10px; /* Height of the horizontal scrollbar */
-}
-
-/* Style the track (background of the scrollbar) */
-::-webkit-scrollbar-track {
-  background: #333; /* Dark background for the track */
-  border-radius: 10px; /* Rounded corners for the track */
-}
-
-/* Style the thumb (draggable part) */
-::-webkit-scrollbar-thumb {
-  background-color: #aaa; /* Light gray color for the thumb */
-  border-radius: 10px; /* Rounded corners for the thumb */
-  border: 2px solid #333; /* Optional border around the thumb */
-}
-
-/* Style the thumb on hover */
-::-webkit-scrollbar-thumb:hover {
-  background-color: #888; /* Darker gray when hovering */
-}
-
-.social{
+/* --- Social Dock --- */
+.social-dock {
   display: flex;
+  justify-content: center;
+  gap: 16px;
   flex-wrap: wrap;
-  margin-top: 20px;
-  /* width: 100%; */
-  justify-content: space-around;
-  align-items:center;
+  width: 100%;
+  padding-top: 24px;
+  border-top: 1px solid var(--glass-border);
 }
 
-.social .link {
-  margin-bottom: 10px;
-  width: 41%;
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@keyframes glow {
-  0% {
-      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5);
-  }
-  50% {
-      text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 1);
-  }
-  100% {
-      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5);
-  }
+.social-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  transition: transform 0.3s ease;
 }
 
-.attention {
-  animation: fadeInLinks 1.5s ease-in-out, glow 1.5s ease-in-out infinite; 
-  animation-delay: 0s, 1.5s;
+.social-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  background: #fff;
+  color: #000;
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+}
+.social-btn:hover svg {
+  transform: scale(1.1);
 }
 
+/* --- Footer --- */
+.footer {
+  margin-top: 32px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

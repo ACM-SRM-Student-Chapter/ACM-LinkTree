@@ -1,40 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="ACM FINAL.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <title>ACM SRM Student Chapter LinkTree</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
+
+  <title>ACM SRM | Official Links</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <script src="script.js"></script>
-  <!-- Conditional Custom Cursor -->
-  <div class="cursor" id="custom-cursor"></div>
+  <div class="orb orb-electric"></div>
+  <div class="orb orb-pink"></div>
+  <div class="orb orb-violet"></div>
+  <div class="grid-overlay"></div>
 
-  <!-- Particle Background -->
-  <div id="particles-js"></div>
-
-  <!-- Main Container -->
   <div class="container" id="main-container">
-    <div id=" logo">
-      <img src="ACM LOGO (svg).png" alt="SRMIST ACM Logo" class="logo" id="logo">
+
+    <div class="profile-section">
+      <div class="logo-wrapper">
+        <img src="ACM LOGO (svg).jpg" alt="ACM SRM Logo" class="logo" id="logo"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/8/8e/Association_for_Computing_Machinery_%28ACM%29_logo.svg'">
+      </div>
+      <h1>ACM Student Chapter SRMIST</h1>
+      <p class="tagline">Accelerating Innovation in Computing. Part of the world's largest educational computing
+        society.</p>
     </div>
-    <h1>SRM ACM STUDENT CHAPTER</h1>
-    <p style="font-family: Tahoma, sans-serif">Welcome to our personalized Linktree! Here you can find all the important links related to the SRM ACM Student Chapter. Explore resources, connect with us, and stay updated on our latest activities.</p>
-    <div class="links" id ="links">
-      <div class="social" id ="social"></div>
-    </div> <!--generates elements dyanimcally -->
+
+    <div class="links-wrapper" id="links"></div>
+
+    <div class="social-dock" id="social"></div>
+
     <div class="footer">
-      © 2025 SRM ACM STUDENT CHAPTER. All rights reserved.<br>
+      © <span id="year"></span> ACM SRM Student Chapter. All rights reserved.
     </div>
   </div>
 
-  <!-- Particle.js Library -->
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script type="module" src="./script.js"></script>
 </body>
+
 </html>
